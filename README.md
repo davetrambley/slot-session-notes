@@ -4,7 +4,7 @@ A small, local-first browser extension for recording slot sessions, balances, an
 
 **Version 0.1.0 · Early local release · Manual entry only**
 
-![Slot Session Notes interface](docs/images/overview.png)
+![Slot Session Notes interface](docs/images/upload-privacy-review.png)
 
 ## What it does
 
