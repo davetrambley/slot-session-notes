@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Slot Session Notes — DaveTheSlot</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="topbar"><span class="brand"><span class="mark">SS</span> DaveTheSlot <span class="divider">/</span> Session tools</span><span class="badge">LOCAL STORAGE · v0.1.0</span></header>
+  <main>
+    <div class="intro"><p class="eyebrow">YOUR SESSION JOURNAL</p><h1>A clearer record.<br>A little more perspective.</h1><p>Keep your time, balances, and notes together. Your records stay in this browser.</p></div>
+    <section class="overview" aria-label="Overview">
+      <div><span>RECORDED SESSIONS</span><strong id="count">0</strong></div>
+      <div><span>TOTAL RECORDED TIME</span><strong id="time">0 min</strong></div>
+      <div><span>NET BY CURRENCY</span><strong id="net">No records yet</strong></div>
+    </section>
+    <div class="layout">
+      <section class="panel editor"><div class="section-head"><div><p class="eyebrow">THE DETAILS</p><h2 id="form-title">Log a session</h2></div><span class="small">Manual entry</span></div>
+        <form id="session-form">
+          <label>Site name or domain<input name="site" required maxlength="120" placeholder="e.g. example.com" autocomplete="off"></label>
+          <label>Game <span class="optional">optional</span><input name="game" maxlength="120" placeholder="Game name" autocomplete="off"></label>
+          <div class="pair"><label>Start time<input name="start" type="datetime-local" required></label><label>End time<input name="end" type="datetime-local" required></label></div>
+          <label>Currency<select name="currency"><option>USD</option><option>EUR</option><option>GBP</option><option>TRY</option></select></label>
+          <div class="pair"><label>Opening balance<input name="opening" type="number" min="0" max="1000000000" step="0.01" required placeholder="0.00"></label><label>Closing balance<input name="closing" type="number" min="0" max="1000000000" step="0.01" required placeholder="0.00"></label></div>
+          <div class="pair"><label>Deposits during session<input name="deposits" type="number" min="0" max="1000000000" step="0.01" required value="0"></label><label>Withdrawals during session<input name="withdrawals" type="number" min="0" max="1000000000" step="0.01" required value="0"></label></div>
+          <label>Notes <span class="optional">optional</span><textarea name="notes" rows="3" maxlength="3000" placeholder="Anything you want to remember."></textarea></label>
+          <p class="hint">Net = closing + withdrawals − opening − deposits. Use balances for the same account and currency.</p>
+          <div class="actions"><button type="submit" class="primary" id="save">Save session</button><button type="button" id="clear-form">Clear form</button></div>
+        </form>
+      </section>
+      <section class="panel history"><div class="section-head"><div><p class="eyebrow">YOUR RECORDS</p><h2>Session history</h2></div><button id="export" type="button">Export CSV ↓</button></div>
+        <label class="search-label">Filter records<input id="search" type="search" placeholder="Search site, game, or notes…"></label>
+        <p class="hint" id="shown"></p>
+        <div id="records"></div>
+      </section>
+    </div>
+    <p id="status" role="status" aria-live="polite"></p>
+    <footer><span>Independent software by DaveTheSlot</span><span>Manual records · No site integrations in this release</span><p>Recorded results describe past sessions; they do not predict future outcomes. Export a copy before removing the extension. CSV export is not an in-app restore file.</p></footer>
+  </main>
+</body>
+</html>

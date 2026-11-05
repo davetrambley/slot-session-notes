@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Slot Session Notes",
+  "version": "0.1.0",
+  "description": "A local session journal for time, balances, notes, and CSV exports. By DaveTheSlot.",
+  "permissions": ["storage"],
+  "action": { "default_title": "Open Slot Session Notes" },
+  "background": { "service_worker": "background.js" },
+  "icons": { "16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png" }
+}
